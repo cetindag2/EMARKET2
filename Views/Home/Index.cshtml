@@ -1,0 +1,48 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+@model EMARKET_MVC.Models.Customer
+
+@{
+    Layout = null;
+}
+
+<div class=" row justify-content-center align-items-center" style=" height:100vh">
+    <div class="col-4">
+        <div class=" card">
+            <div class="card-body">
+                @{
+                    if (TempData["mesaj"] != null)
+                    {
+                        <h3>@TempData["mesaj"]</h3>
+                    }
+                }
+                @using (Html.BeginForm("Login", "Home", FormMethod.Post))
+                {
+                    <table cellpadding="0" cellspacing="0">
+                        <tr>
+                            <th colspan="2" align="center">Giriş Yap</th>
+                        </tr>
+                        <tr>
+                            <td>Kullanıcı Adı </td>
+                            <td>
+                                @Html.TextBoxFor(c => c.CustomerId)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Parola </td>
+                            <td>
+                                @Html.PasswordFor(c => c.Password)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td><input type="submit" value="Giriş" /></td>
+                        </tr>
+                    </table>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,25 @@
+﻿@*@page
+@model EMARKET_MVC.Views.Home.MainPageModel
+@{
+}*@
+<h1> Ana Sayfa </h1>
+<h3>@ViewData["name"] @ViewData["surname"] </h3>
+
+   <div>
+    <a asp-action="UserBasket" asp-route-CustomerId="@TempData["UserID"]">Sepete Git</a>
+
+</div>
+
+<div>
+    <a asp-action="MyOrder" asp-route-CustomerId="@TempData["UserID"]">Siparişlerimi Göster</a>
+
+</div>
+
+<input type="button" value="Ürünleri Listele" onclick="location.href='@Url.Action("ProductList", "Home")'" />
+
+<input type="button" value="Sepet Raporu" onclick="location.href='@Url.Action("BasketReport", "Home")'" />
+
+<input type="button" value="Sipariş Raporu" onclick="location.href='@Url.Action("OrderReport", "Home")'" />
+
+<input type="button" value="Çıkış Yap" onclick="location.href='@Url.Action("Logout", "Home")'" />
+

@@ -1,0 +1,44 @@
+﻿@{
+    Layout = null;
+}
+@model IEnumerable<EMARKET_MVC.Models.Basket>
+@{
+    ViewData["Title"] = "Index";
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>UserBasket</title>
+</head>
+<body>
+    <h1>Sepetimdeki Ürünler</h1>
+    <table style="width:50%">
+        <thead>
+            <tr>
+                <th>Sepet numarası</th>
+                <th>Ürün Kodu</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (Basket B in Model)
+            {
+               <tr>
+
+                    <td>@B.BasketId</td>
+                    <td>@B.ProductId</td>
+                    <td><a asp-action="Order" asp-route-ProductId="@B.ProductId">Satın Al</a></td>
+                </tr>
+
+            }
+        </tbody>
+    </table>
+
+    <div>
+        <input type="button" value="Ana Sayfaya Dön" onclick="location.href='@Url.Action("MainPage", "Home")'" />
+    </div>
+
+
+</body>
+</html>

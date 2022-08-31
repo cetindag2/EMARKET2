@@ -1,0 +1,47 @@
+﻿@page
+@model EMARKET_MVC.Models.Product
+@{
+    Layout = null;
+}
+
+<div>
+    <h2>Ürün Detayı</h2>
+    <hr />
+    <dl class="dl-horizontal">
+        <dd>
+            <label for="ProductID">Ürün Kodu: </label>
+            @Html.DisplayFor(model => model.ProductId)
+        </dd>
+        <dd>
+            <label for="ProductName">Ürün Adı: </label>
+            @Html.DisplayFor(model => model.ProductName)
+        </dd>
+        <dd>
+            <label for="ProductProperty">Ürün Özellikleri: </label>
+            @Html.DisplayFor(model => model.ProductProperty)
+        </dd>
+
+        <dd>
+            <label for="ProductProperty">Fiyat: </label>
+            @Html.DisplayFor(model => model.Price)
+        </dd>
+    </dl>
+</div>
+
+<div>
+    <a asp-action="Basket" asp-route-ProductId="@TempData["ProductId"]">Sepete Ekle</a>
+
+</div>
+
+<div>
+    <input type="button" value="Ürün Listesine Dön" onclick="location.href='@Url.Action("ProductList", "Home")'" />
+</div>
+
+<div>
+    <input type="button" value="Ana Sayfaya Dön" onclick="location.href='@Url.Action("MainPage", "Home")'" />
+</div>
+
+
+
+
+

@@ -1,0 +1,27 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Order</title>
+
+</head>
+<body>
+    @ViewData["Onay"]
+
+    <div>
+        <input type="button" value="Ürün Listesine Dön" onclick="location.href='@Url.Action("ProductList", "Home")'" />
+    </div>
+
+    <div>
+        <input type="button" value="Ana Sayfaya Dön" onclick="location.href='@Url.Action("MainPage", "Home")'" />
+    </div>
+
+
+</body>
+</html>

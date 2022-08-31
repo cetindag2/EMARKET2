@@ -1,0 +1,38 @@
+﻿
+@{
+    Layout = null;
+}
+
+@model IEnumerable<EMARKET_MVC.Models.Product>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Ürünler Listesi</h1>
+<table style="width:50%">
+    <thead>
+        <tr>
+            <th>Ürün ID</th>
+            <th>Ürün Adı</th>
+            <th>Ürün Özellikleri</th>
+            <th>Fiyat</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Product P in Model)
+        {
+            <tr>
+                <td>@P.ProductId</td>
+                <td>@P.ProductName</td>
+                <td>@P.ProductProperty</td>
+                <td>@P.Price</td>
+                <td><a asp-action="Details" asp-route-ProductId="@P.ProductId">Detaylar</a></td>
+            </tr>
+
+        }
+    </tbody>
+</table>
+
+<div>
+    <input type="button" value="Ana Sayfaya Dön" onclick="location.href='@Url.Action("MainPage", "Home")'" />
+</div>

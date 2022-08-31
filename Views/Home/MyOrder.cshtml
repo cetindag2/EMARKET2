@@ -1,0 +1,44 @@
+﻿
+@{
+    Layout = null;
+}
+
+@model IEnumerable<EMARKET_MVC.Models.Order>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>MyOrder</title>
+</head>
+<body>
+    <h1>Siparişlerim</h1>
+    <table style="width:50%">
+        <thead>
+            <tr>
+                <th>Sipariş Numarası</th>
+                <th>Ürün Kodu</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (Order O in Model)
+            {
+                <tr>
+
+                    <td>@O.OrderId</td>
+                    <td>@O.ProductId</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+
+    <div>
+        <input type="button" value="Ana Sayfaya Dön" onclick="location.href='@Url.Action("MainPage", "Home")'" />
+    </div>
+</body>
+</html>
